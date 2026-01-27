@@ -1,0 +1,16 @@
+# Docker
+*.log
+.env
+
+# Odoo data
+odoo-data/
+addons/
+filestore/
+
+# Postgres
+db-data/
+
+# OS / Editor
+.DS_Store
+.vscode/
+.idea/
