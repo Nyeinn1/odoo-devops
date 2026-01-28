@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:13
+    image: postgres:16
     env_file:
       - .env
     volumes:
@@ -12,7 +12,7 @@ services:
       timeout: 5s
 
   odoo:
-    image: odoo:16
+    image: odoo:19
     depends_on:
       db:
         condition: service_healthy
@@ -22,6 +22,7 @@ services:
       - odoo-data:/var/lib/odoo
     expose:
       - "8069"
+    command: ["odoo", "-d", "odoo", "-i", "base", "--db_user=odoo", "--db_password=odoo"]
 
   nginx:
     image: nginx:alpine
